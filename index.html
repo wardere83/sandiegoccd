@@ -61,27 +61,29 @@
          Secondary: Taupe  #A79B93, Teal  #006B67, Poppy #F18A20 (deep neutral aliased to poppy per direction)
          The CSS variable names are kept generic so the dashboard structure
          doesn't change; values are remapped onto the actual brand palette. */
-      --ccc-dark-blue:#003B70; --ccc-darker-blue:#00284D; --ccc-medium-blue:#0077C8;
-      --ccc-light-blue:#9BC4E2; --ccc-gold:#FFC72C; --ccc-dark-gold:#E0A100;
-      --avc-maroon:#C8102E;   /* primary accent (San Diego red) */
-      --avc-crimson:#C8102E;  /* alias for back-compat */
-      --avc-poppy:#FFC72C;    /* gold accent */
-      --avc-orange:#FFC72C;   /* alias for back-compat */
-      --avc-blue:#0077C8;     /* primary supporting */
-      --avc-teal:#003B70;     /* secondary anchor (sidebar) */
-      --avc-taupe:#6E7CA0;    /* secondary neutral */
-      --avc-brown:#E0A100;    /* secondary deep neutral */
-      --avc-tint:#EAF2FA;     /* soft blue tint */
-      --avc-cream:#FFF7E6;     /* warm cream surface */
-      --ccc-light-gold:#FFE680; --ccc-dark-grey:#555759; --ccc-medium-grey:#717271; --ccc-light-grey:#B2B3B2;
+      /* ── Minimalist San Diego CCD palette: deep navy + one soft blue accent
+           + a muted amber, on neutral greys. Restrained, low-saturation. ── */
+      --ccc-dark-blue:#13314F; --ccc-darker-blue:#0C2238; --ccc-medium-blue:#3A6EA5;
+      --ccc-light-blue:#AFC6DC; --ccc-gold:#C9A24A; --ccc-dark-gold:#A8842F;
+      --avc-maroon:#3A6EA5;   /* accent folded into the blue family (minimalist) */
+      --avc-crimson:#3A6EA5;  /* alias for back-compat */
+      --avc-poppy:#C9A24A;    /* muted amber accent */
+      --avc-orange:#C9A24A;   /* alias for back-compat */
+      --avc-blue:#3A6EA5;     /* primary supporting */
+      --avc-teal:#13314F;     /* secondary anchor (sidebar) */
+      --avc-taupe:#6B7A8D;    /* secondary neutral */
+      --avc-brown:#A8842F;    /* secondary deep neutral */
+      --avc-tint:#EEF3F8;     /* soft blue tint */
+      --avc-cream:#FAF6EE;     /* warm neutral surface */
+      --ccc-light-gold:#E4D3A6; --ccc-dark-grey:#3F4754; --ccc-medium-grey:#6B7280; --ccc-light-grey:#AEB4BD;
       --bg:#F3F6F9; --bg-surface:#FFFFFF; --bg-surface-2:#EEF2F6; --bg-card:#FFFFFF;
       --border:rgba(0,62,90,0.12); --border-strong:rgba(0,62,90,0.22);
       --text-primary:#1A1F2E; --text-secondary:#555759; --text-muted:#717271; --text-on-dark:#FFFFFF; --text-on-gold:#003E5A;
-      --accent:#003E5A; --accent-hover:#002A3A; --accent-secondary:#0033A0; --accent-light:#3B7EB9; --fig-color:var(--ccc-dark-blue);
-      --accent-gold:#FFCD00; --accent-dark-gold:#E5B800;
-      --tier1-color:#003E5A; --tier1-bg:rgba(0,62,90,0.08);
-      --tier2-color:#0033A0; --tier2-bg:rgba(0,51,160,0.08);
-      --lift-color:#E5B800; --lift-bg:rgba(255,205,0,0.12);
+      --accent:#13314F; --accent-hover:#0C2238; --accent-secondary:#3A6EA5; --accent-light:#5E8AB8; --fig-color:var(--ccc-dark-blue);
+      --accent-gold:#C9A24A; --accent-dark-gold:#A8842F;
+      --tier1-color:#13314F; --tier1-bg:rgba(19,49,79,0.08);
+      --tier2-color:#3A6EA5; --tier2-bg:rgba(58,110,165,0.08);
+      --lift-color:#C9A24A; --lift-bg:rgba(201,162,74,0.12);
       --success:#1a7a3c; --success-bg:rgba(26,122,60,0.08);
       --font-display:'Crimson Text',Georgia,serif; --font-body:'Source Sans 3','Helvetica Neue',sans-serif;
       --sidebar-w:240px; --header-h:64px; --mobile-nav-h:60px; --content-max:1280px;
@@ -98,7 +100,7 @@
       --accent:#40B4E5; --accent-hover:#5EC5F0; --accent-light:#40B4E5; --fig-color:var(--accent-light);
       --tier1-color:#40B4E5; --tier1-bg:rgba(64,180,229,0.12);
       --tier2-color:#5EC5F0; --tier2-bg:rgba(94,197,240,0.10);
-      --lift-color:#FFCD00; --lift-bg:rgba(255,205,0,0.14);
+      --lift-color:#C9A24A; --lift-bg:rgba(201,162,74,0.14);
       --success:#4CAF72; --success-bg:rgba(76,175,114,0.12);
       --shadow-sm:0 1px 3px rgba(0,0,0,0.25); --shadow-md:0 4px 12px rgba(0,0,0,0.35); --shadow-lg:0 12px 32px rgba(0,0,0,0.45);
     }
@@ -163,7 +165,7 @@
     .overview-ticker:hover .overview-ticker-track,
     .overview-ticker:focus-within .overview-ticker-track { animation-play-state:paused; }
     .overview-hero .overview-ticker-item { font-size:14.5px; color:rgba(255,255,255,0.92); font-weight:500; letter-spacing:0.005em; }
-    .overview-hero .overview-ticker-item::before { content:""; display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--ccc-gold); margin-right:14px; transform:translateY(-2px); vertical-align:middle; box-shadow:0 0 0 3px rgba(255,205,0,0.22); }
+    .overview-hero .overview-ticker-item::before { content:""; display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--ccc-gold); margin-right:14px; transform:translateY(-2px); vertical-align:middle; box-shadow:0 0 0 3px rgba(201,162,74,0.20); }
     @keyframes overview-ticker-scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
     @media (prefers-reduced-motion: reduce) { .overview-ticker-track { animation:none; } }
 
@@ -3048,7 +3050,7 @@ let chartInstances = {};
 function destroyCharts() { Object.values(chartInstances).forEach(c => { try { c.destroy(); } catch(e){} }); chartInstances = {}; }
 function getChartColors() {
   return {
-    darkBlue:'#003E5A', medBlue:'#0033A0', lightBlue:'#40B4E5', gold:'#FFCD00', darkGold:'#E5B800', darkGrey:'#555759',
+    darkBlue:'#13314F', medBlue:'#3A6EA5', lightBlue:'#7CA6CC', gold:'#C9A24A', darkGold:'#A8842F', darkGrey:'#5A6675',
     grid: isDark ? 'rgba(64,180,229,0.1)' : 'rgba(0,62,90,0.08)',
     text: isDark ? '#A8B4CC' : '#555759',
     tick: isDark ? '#A8B4CC' : '#555759'
@@ -3361,7 +3363,7 @@ function renderSpendDown() {
         const liId = p.id + '-li' + idx;
         const liPct = ((li.amount/totalGrant)*100).toFixed(2);
         const isIndirect = li.code === '7000';
-        const codeBadge = '<span style="display:inline-block;padding:1px 7px;border-radius:6px;background:' + (isIndirect ? 'rgba(255,205,0,0.18)' : 'rgba(0,51,160,0.10)') + ';color:' + (isIndirect ? 'var(--ccc-dark-gold)' : 'var(--ccc-medium-blue)') + ';font-size:10px;font-weight:700;letter-spacing:0.04em;margin-right:8px;">' + li.code + '</span>';
+        const codeBadge = '<span style="display:inline-block;padding:1px 7px;border-radius:6px;background:' + (isIndirect ? 'rgba(201,162,74,0.18)' : 'rgba(0,51,160,0.10)') + ';color:' + (isIndirect ? 'var(--ccc-dark-gold)' : 'var(--ccc-medium-blue)') + ';font-size:10px;font-weight:700;letter-spacing:0.04em;margin-right:8px;">' + li.code + '</span>';
         const isOffTrack = periodStatuses[liId] === 'off';
         const statusColor = isOffTrack ? '#c53030' : '#1a7a3c';
         const statusText = isOffTrack ? t('status_off') : t('status_on');

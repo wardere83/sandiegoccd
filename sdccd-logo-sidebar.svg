@@ -1,12 +1,6 @@
-<svg width="560" height="150" viewBox="0 0 560 150" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="San Diego Community College District">
-  <!-- Emblem: stacked navy/gold chevrons evoking the district's four colleges -->
-  <g>
-    <path d="M16 92 L62 16 L82 49 L52 92 Z" fill="#FFC72C"/>
-    <path d="M16 92 L62 16 L70 30 L36 92 Z" fill="#FFFFFF"/>
-    <path d="M70 92 L108 30 L128 63 L108 92 Z" fill="#FFFFFF"/>
-    <path d="M88 92 L120 40 L138 92 Z" fill="#FFC72C"/>
-  </g>
-  <text x="168" y="64" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" letter-spacing="2" fill="#FFFFFF">SDCCD</text>
-  <text x="170" y="98" font-family="'Helvetica Neue', Arial, sans-serif" font-size="17.5" font-weight="600" letter-spacing="0.5" fill="rgba(255,255,255,0.92)">San Diego Community</text>
-  <text x="170" y="122" font-family="'Helvetica Neue', Arial, sans-serif" font-size="17.5" font-weight="600" letter-spacing="0.5" fill="rgba(255,255,255,0.92)">College District</text>
+<svg width="460" height="132" viewBox="0 0 460 132" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="San Diego Community College District">
+  <text x="0" y="58" font-family="Georgia, 'Times New Roman', serif" font-size="56" font-weight="600" letter-spacing="3" fill="#FFFFFF">SDCCD</text>
+  <rect x="2" y="76" width="64" height="3" rx="1.5" fill="#C9A24A"/>
+  <text x="2" y="104" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15.5" font-weight="500" letter-spacing="1.5" fill="rgba(255,255,255,0.78)">SAN DIEGO COMMUNITY</text>
+  <text x="2" y="125" font-family="'Helvetica Neue', Arial, sans-serif" font-size="15.5" font-weight="500" letter-spacing="1.5" fill="rgba(255,255,255,0.78)">COLLEGE DISTRICT</text>
 </svg>

@@ -61,27 +61,29 @@
          Secondary: Taupe  #A79B93, Teal  #006B67, Poppy #F18A20 (deep neutral aliased to poppy per direction)
          The CSS variable names are kept generic so the dashboard structure
          doesn't change; values are remapped onto the actual brand palette. */
-      --ccc-dark-blue:#003B70; --ccc-darker-blue:#00284D; --ccc-medium-blue:#0077C8;
-      --ccc-light-blue:#9BC4E2; --ccc-gold:#FFC72C; --ccc-dark-gold:#E0A100;
-      --avc-maroon:#C8102E;   /* primary accent (San Diego red) */
-      --avc-crimson:#C8102E;  /* alias for back-compat */
-      --avc-poppy:#FFC72C;    /* gold accent */
-      --avc-orange:#FFC72C;   /* alias for back-compat */
-      --avc-blue:#0077C8;     /* primary supporting */
-      --avc-teal:#003B70;     /* secondary anchor (sidebar) */
-      --avc-taupe:#6E7CA0;    /* secondary neutral */
-      --avc-brown:#E0A100;    /* secondary deep neutral */
-      --avc-tint:#EAF2FA;     /* soft blue tint */
-      --avc-cream:#FFF7E6;     /* warm cream surface */
-      --ccc-light-gold:#FFE680; --ccc-dark-grey:#555759; --ccc-medium-grey:#717271; --ccc-light-grey:#B2B3B2;
+      /* ── Minimalist San Diego CCD palette: deep navy + one soft blue accent
+           + a muted amber, on neutral greys. Restrained, low-saturation. ── */
+      --ccc-dark-blue:#13314F; --ccc-darker-blue:#0C2238; --ccc-medium-blue:#3A6EA5;
+      --ccc-light-blue:#AFC6DC; --ccc-gold:#C9A24A; --ccc-dark-gold:#A8842F;
+      --avc-maroon:#3A6EA5;   /* accent folded into the blue family (minimalist) */
+      --avc-crimson:#3A6EA5;  /* alias for back-compat */
+      --avc-poppy:#C9A24A;    /* muted amber accent */
+      --avc-orange:#C9A24A;   /* alias for back-compat */
+      --avc-blue:#3A6EA5;     /* primary supporting */
+      --avc-teal:#13314F;     /* secondary anchor (sidebar) */
+      --avc-taupe:#6B7A8D;    /* secondary neutral */
+      --avc-brown:#A8842F;    /* secondary deep neutral */
+      --avc-tint:#EEF3F8;     /* soft blue tint */
+      --avc-cream:#FAF6EE;     /* warm neutral surface */
+      --ccc-light-gold:#E4D3A6; --ccc-dark-grey:#3F4754; --ccc-medium-grey:#6B7280; --ccc-light-grey:#AEB4BD;
       --bg:#F3F6F9; --bg-surface:#FFFFFF; --bg-surface-2:#EEF2F6; --bg-card:#FFFFFF;
       --border:rgba(0,62,90,0.12); --border-strong:rgba(0,62,90,0.22);
       --text-primary:#1A1F2E; --text-secondary:#555759; --text-muted:#717271; --text-on-dark:#FFFFFF; --text-on-gold:#003E5A;
-      --accent:#003E5A; --accent-hover:#002A3A; --accent-secondary:#0033A0; --accent-light:#3B7EB9; --fig-color:var(--ccc-dark-blue);
-      --accent-gold:#FFCD00; --accent-dark-gold:#E5B800;
-      --tier1-color:#003E5A; --tier1-bg:rgba(0,62,90,0.08);
-      --tier2-color:#0033A0; --tier2-bg:rgba(0,51,160,0.08);
-      --lift-color:#E5B800; --lift-bg:rgba(255,205,0,0.12);
+      --accent:#13314F; --accent-hover:#0C2238; --accent-secondary:#3A6EA5; --accent-light:#5E8AB8; --fig-color:var(--ccc-dark-blue);
+      --accent-gold:#C9A24A; --accent-dark-gold:#A8842F;
+      --tier1-color:#13314F; --tier1-bg:rgba(19,49,79,0.08);
+      --tier2-color:#3A6EA5; --tier2-bg:rgba(58,110,165,0.08);
+      --lift-color:#C9A24A; --lift-bg:rgba(201,162,74,0.12);
       --success:#1a7a3c; --success-bg:rgba(26,122,60,0.08);
       --font-display:'Crimson Text',Georgia,serif; --font-body:'Source Sans 3','Helvetica Neue',sans-serif;
       --sidebar-w:240px; --header-h:64px; --mobile-nav-h:60px; --content-max:1280px;
@@ -98,7 +100,7 @@
       --accent:#40B4E5; --accent-hover:#5EC5F0; --accent-light:#40B4E5; --fig-color:var(--accent-light);
       --tier1-color:#40B4E5; --tier1-bg:rgba(64,180,229,0.12);
       --tier2-color:#5EC5F0; --tier2-bg:rgba(94,197,240,0.10);
-      --lift-color:#FFCD00; --lift-bg:rgba(255,205,0,0.14);
+      --lift-color:#C9A24A; --lift-bg:rgba(201,162,74,0.14);
       --success:#4CAF72; --success-bg:rgba(76,175,114,0.12);
       --shadow-sm:0 1px 3px rgba(0,0,0,0.25); --shadow-md:0 4px 12px rgba(0,0,0,0.35); --shadow-lg:0 12px 32px rgba(0,0,0,0.45);
     }
@@ -163,7 +165,7 @@
     .overview-ticker:hover .overview-ticker-track,
     .overview-ticker:focus-within .overview-ticker-track { animation-play-state:paused; }
     .overview-hero .overview-ticker-item { font-size:14.5px; color:rgba(255,255,255,0.92); font-weight:500; letter-spacing:0.005em; }
-    .overview-hero .overview-ticker-item::before { content:""; display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--ccc-gold); margin-right:14px; transform:translateY(-2px); vertical-align:middle; box-shadow:0 0 0 3px rgba(255,205,0,0.22); }
+    .overview-hero .overview-ticker-item::before { content:""; display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--ccc-gold); margin-right:14px; transform:translateY(-2px); vertical-align:middle; box-shadow:0 0 0 3px rgba(201,162,74,0.20); }
     @keyframes overview-ticker-scroll { from { transform:translateX(0); } to { transform:translateX(-50%); } }
     @media (prefers-reduced-motion: reduce) { .overview-ticker-track { animation:none; } }
 
@@ -811,7 +813,7 @@
 <div class="app">
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-logo">
-      <a class="cccco-logo-link" href="https://www.sdccd.edu" target="_blank" rel="noopener noreferrer" aria-label="San Diego Community College District"><img class="avc-logo-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDU2MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJTYW4gRGllZ28gQ29tbXVuaXR5IENvbGxlZ2UgRGlzdHJpY3QiPgogIDwhLS0gRW1ibGVtOiBzdGFja2VkIG5hdnkvZ29sZCBjaGV2cm9ucyBldm9raW5nIHRoZSBkaXN0cmljdCdzIGZvdXIgY29sbGVnZXMgLS0+CiAgPGc+CiAgICA8cGF0aCBkPSJNMTYgOTIgTDYyIDE2IEw4MiA0OSBMNTIgOTIgWiIgZmlsbD0iI0ZGQzcyQyIvPgogICAgPHBhdGggZD0iTTE2IDkyIEw2MiAxNiBMNzAgMzAgTDM2IDkyIFoiIGZpbGw9IiNGRkZGRkYiLz4KICAgIDxwYXRoIGQ9Ik03MCA5MiBMMTA4IDMwIEwxMjggNjMgTDEwOCA5MiBaIiBmaWxsPSIjRkZGRkZGIi8+CiAgICA8cGF0aCBkPSJNODggOTIgTDEyMCA0MCBMMTM4IDkyIFoiIGZpbGw9IiNGRkM3MkMiLz4KICA8L2c+CiAgPHRleHQgeD0iMTY4IiB5PSI2NCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsICdUaW1lcyBOZXcgUm9tYW4nLCBzZXJpZiIgZm9udC1zaXplPSI1OCIgZm9udC13ZWlnaHQ9IjcwMCIgbGV0dGVyLXNwYWNpbmc9IjIiIGZpbGw9IiNGRkZGRkYiPlNEQ0NEPC90ZXh0PgogIDx0ZXh0IHg9IjE3MCIgeT0iOTgiIGZvbnQtZmFtaWx5PSInSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNy41IiBmb250LXdlaWdodD0iNjAwIiBsZXR0ZXItc3BhY2luZz0iMC41IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuOTIpIj5TYW4gRGllZ28gQ29tbXVuaXR5PC90ZXh0PgogIDx0ZXh0IHg9IjE3MCIgeT0iMTIyIiBmb250LWZhbWlseT0iJ0hlbHZldGljYSBOZXVlJywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTcuNSIgZm9udC13ZWlnaHQ9IjYwMCIgbGV0dGVyLXNwYWNpbmc9IjAuNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjkyKSI+Q29sbGVnZSBEaXN0cmljdDwvdGV4dD4KPC9zdmc+Cg==" alt="San Diego Community College District" /></a>
+      <a class="cccco-logo-link" href="https://www.sdccd.edu" target="_blank" rel="noopener noreferrer" aria-label="San Diego Community College District"><img class="avc-logo-img" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDYwIiBoZWlnaHQ9IjEzMiIgdmlld0JveD0iMCAwIDQ2MCAxMzIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJTYW4gRGllZ28gQ29tbXVuaXR5IENvbGxlZ2UgRGlzdHJpY3QiPgogIDx0ZXh0IHg9IjAiIHk9IjU4IiBmb250LWZhbWlseT0iR2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmIiBmb250LXNpemU9IjU2IiBmb250LXdlaWdodD0iNjAwIiBsZXR0ZXItc3BhY2luZz0iMyIgZmlsbD0iI0ZGRkZGRiI+U0RDQ0Q8L3RleHQ+CiAgPHJlY3QgeD0iMiIgeT0iNzYiIHdpZHRoPSI2NCIgaGVpZ2h0PSIzIiByeD0iMS41IiBmaWxsPSIjQzlBMjRBIi8+CiAgPHRleHQgeD0iMiIgeT0iMTA0IiBmb250LWZhbWlseT0iJ0hlbHZldGljYSBOZXVlJywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUuNSIgZm9udC13ZWlnaHQ9IjUwMCIgbGV0dGVyLXNwYWNpbmc9IjEuNSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjc4KSI+U0FOIERJRUdPIENPTU1VTklUWTwvdGV4dD4KICA8dGV4dCB4PSIyIiB5PSIxMjUiIGZvbnQtZmFtaWx5PSInSGVsdmV0aWNhIE5ldWUnLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNS41IiBmb250LXdlaWdodD0iNTAwIiBsZXR0ZXItc3BhY2luZz0iMS41IiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuNzgpIj5DT0xMRUdFIERJU1RSSUNUPC90ZXh0Pgo8L3N2Zz4K" alt="San Diego Community College District" /></a>
       <div class="avc-project-name">TRACE · Transparent Recruitment &amp; Accountability for Candidate Equity</div>
     </div>
 
@@ -3048,7 +3050,7 @@ let chartInstances = {};
 function destroyCharts() { Object.values(chartInstances).forEach(c => { try { c.destroy(); } catch(e){} }); chartInstances = {}; }
 function getChartColors() {
   return {
-    darkBlue:'#003E5A', medBlue:'#0033A0', lightBlue:'#40B4E5', gold:'#FFCD00', darkGold:'#E5B800', darkGrey:'#555759',
+    darkBlue:'#13314F', medBlue:'#3A6EA5', lightBlue:'#7CA6CC', gold:'#C9A24A', darkGold:'#A8842F', darkGrey:'#5A6675',
     grid: isDark ? 'rgba(64,180,229,0.1)' : 'rgba(0,62,90,0.08)',
     text: isDark ? '#A8B4CC' : '#555759',
     tick: isDark ? '#A8B4CC' : '#555759'
@@ -3361,7 +3363,7 @@ function renderSpendDown() {
         const liId = p.id + '-li' + idx;
         const liPct = ((li.amount/totalGrant)*100).toFixed(2);
         const isIndirect = li.code === '7000';
-        const codeBadge = '<span style="display:inline-block;padding:1px 7px;border-radius:6px;background:' + (isIndirect ? 'rgba(255,205,0,0.18)' : 'rgba(0,51,160,0.10)') + ';color:' + (isIndirect ? 'var(--ccc-dark-gold)' : 'var(--ccc-medium-blue)') + ';font-size:10px;font-weight:700;letter-spacing:0.04em;margin-right:8px;">' + li.code + '</span>';
+        const codeBadge = '<span style="display:inline-block;padding:1px 7px;border-radius:6px;background:' + (isIndirect ? 'rgba(201,162,74,0.18)' : 'rgba(0,51,160,0.10)') + ';color:' + (isIndirect ? 'var(--ccc-dark-gold)' : 'var(--ccc-medium-blue)') + ';font-size:10px;font-weight:700;letter-spacing:0.04em;margin-right:8px;">' + li.code + '</span>';
         const isOffTrack = periodStatuses[liId] === 'off';
         const statusColor = isOffTrack ? '#c53030' : '#1a7a3c';
         const statusText = isOffTrack ? t('status_off') : t('status_on');
