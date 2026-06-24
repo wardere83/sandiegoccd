@@ -2782,7 +2782,7 @@ function applySavedBudgetMods() {
 }
 
 function resetBudgetModForm() {
-  localStorage.removeItem(BMR_STORE);
+  try { localStorage.removeItem(BMR_STORE); } catch (e) {}
   BUDGET_MODEL = BUDGET_BASELINE.map(r => ({ ...r }));
   districts[0].yearlyBudget = {
     y1: BUDGET_MODEL.reduce((s,x) => s + x.y1, 0),
@@ -2836,7 +2836,7 @@ function gmrAddRow() {
   gmrPersist();
 }
 function gmrDelRow(btn) { const tr = btn.closest('tr'); if (tr) tr.remove(); gmrPersist(); }
-function resetGrantForm() { localStorage.removeItem(GMR_STORE); renderGrantForm(); }
+function resetGrantForm() { try { localStorage.removeItem(GMR_STORE); } catch (e) {} renderGrantForm(); }
 function openForm(which) {
   const list = document.getElementById('forms-list'),
         gw = document.getElementById('grant-mod-wrap'),
@@ -3166,8 +3166,12 @@ const AVC_PERIODS = [
   }
 ];
 
-const periodStatuses = JSON.parse(localStorage.getItem('avcPeriodStatuses') || '{}');
-const periodPaces    = JSON.parse(localStorage.getItem('avcPeriodPaces')    || '{}');
+// Guarded so the dashboard still initializes when localStorage is unavailable
+// (e.g. opened directly as a file:// page, or in privacy modes that block storage).
+const safeLSget = (k, fb) => { try { return JSON.parse(localStorage.getItem(k) || fb); } catch (e) { return JSON.parse(fb); } };
+const safeLSset = (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* storage unavailable — no-op */ } };
+const periodStatuses = safeLSget('avcPeriodStatuses', '{}');
+const periodPaces    = safeLSget('avcPeriodPaces',    '{}');
 
 const PACE_CYCLE = ['slow','moderate','fast'];
 const PACE_COLOR = {
@@ -3212,7 +3216,7 @@ function getAllLineItems() {
 function togglePeriodStatus(btn, id) {
   const isNowOff = btn.dataset.on === '1';
   periodStatuses[id] = isNowOff ? 'off' : 'on';
-  localStorage.setItem('avcPeriodStatuses', JSON.stringify(periodStatuses));
+  safeLSset('avcPeriodStatuses', JSON.stringify(periodStatuses));
   btn.dataset.on = isNowOff ? '0' : '1';
   btn.style.background = isNowOff ? '#c53030' : '#1a7a3c';
   btn.textContent = isNowOff ? t('status_off') : t('status_on');
@@ -3224,7 +3228,7 @@ function togglePeriodPace(btn, id) {
   const idx = PACE_CYCLE.indexOf(current);
   const next = PACE_CYCLE[(idx + 1) % PACE_CYCLE.length];
   periodPaces[id] = next;
-  localStorage.setItem('avcPeriodPaces', JSON.stringify(periodPaces));
+  safeLSset('avcPeriodPaces', JSON.stringify(periodPaces));
   btn.dataset.pace = next;
   btn.style.background = PACE_COLOR[next];
   btn.textContent = t('pace_' + next);
