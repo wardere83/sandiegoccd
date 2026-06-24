@@ -1675,6 +1675,7 @@ const districts = [
     altContact:{name:'John Valencia',role:'Alternate Project Lead',email:'john@goodforothers.org',phone:''},
     fiscalReporter:{name:'Dan Troy',role:'Fiscal Reporter',email:'dtroy@sdccd.edu',phone:'(619) 388-6976'},
     planApprover:{name:'Dr. Jared Burns',role:'Plan Approver',email:'jburns001@sdccd.edu',phone:'(619) 388-6589'},
+    coChair:{name:'Dr. Michelle Fischthal',role:'Co-Chair & Co-Executive Sponsor',email:'',phone:''},
     budgetHighlights:{'Instructional Salaries (1000)':24370,'Non-Instructional Salaries (2000)':38000,'Other Operating & Services (5000)':77880},
     yearlyBudget:{y1:89998,y2:59999},
     primaryFocus:'District-Wide Hiring Practices Audit'
@@ -3020,7 +3021,7 @@ function renderContacts() {
   const grid = document.getElementById('contacts-grid');
   if (!grid) return;
   grid.innerHTML = districts.map(d => {
-    const people = [d.contact, d.altContact, d.fiscalReporter, d.planApprover].filter(Boolean);
+    const people = [d.contact, d.altContact, d.fiscalReporter, d.planApprover, d.coChair].filter(Boolean);
     const tierLabel = d.lift ? `${t('kpi_lift')} · ${d.liftRegion}` : `${t('th_tier')} ${d.tier}`;
     return `
       <div class="contact-card">
@@ -3036,7 +3037,7 @@ function renderContacts() {
               <div class="contact-info">
                 <div class="contact-name">${p.name}</div>
                 <div class="contact-role">${translateRole(p.role)}</div>
-                <a class="contact-email" href="mailto:${p.email}">${p.email}</a>
+                ${p.email ? `<a class="contact-email" href="mailto:${p.email}">${p.email}</a>` : ''}
                 ${p.phone ? `<a class="contact-phone" href="tel:${p.phone.replace(/[^0-9+]/g,'')}">${p.phone}</a>` : ''}
               </div>
             </div>`).join('')}
