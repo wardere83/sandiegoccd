@@ -628,24 +628,27 @@
     .tl-hbi { flex:1; text-align:center; }
     .tl-ht { width:80px; flex-shrink:0; text-align:right; }
 
-    .contacts-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
+    .contacts-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:16px; align-items:start; }
     .contact-card { background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-sm); transition:box-shadow var(--transition); }
     .contact-card:hover { box-shadow:var(--shadow-md); }
-    .contact-card-header { background:var(--ccc-dark-blue); padding:12px 16px; }
-    .contact-card-district { font-size:13px; font-weight:700; color:#fff; }
-    .contact-card-region { font-size:11px; color:rgba(255,255,255,0.6); }
+    .contact-card:first-child { grid-column:1 / -1; }   /* lead contact spans the full width, like the card above */
+    .contact-card-header { background:var(--ccc-dark-blue); padding:14px 16px; display:flex; align-items:center; gap:12px; }
+    .contact-card-headtext { min-width:0; }
+    .contact-card-district { font-size:15px; font-weight:700; color:#fff; line-height:1.25; }
+    .contact-card-region { font-size:12px; color:rgba(255,255,255,0.72); margin-top:2px; }
     .contact-card-address { font-size:11px; color:rgba(255,255,255,0.55); margin-top:4px; line-height:1.3; }
-    .contact-phone { display:block; font-size:11.5px; color:var(--text-secondary); margin-top:1px; text-decoration:none; }
+    .contact-card-body2 { padding:14px 16px; display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 32px; }
+    .contact-phone { font-size:13px; color:var(--text-secondary); text-decoration:none; }
     .contact-phone:hover { color:var(--ccc-medium-blue); }
     [data-theme="dark"] .contact-phone:hover { color:var(--accent-light); }
-    .contact-body { padding:14px 16px; display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
-    .contact-person { display:flex; align-items:flex-start; gap:10px; padding:12px 14px; border:1px solid var(--border); border-radius:var(--radius-md); background:var(--bg-surface); }
-    .contact-person:first-child { grid-column:1 / -1; }
-    .contact-avatar { width:32px; height:32px; border-radius:50%; background:var(--tier1-bg); color:var(--tier1-color); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; flex-shrink:0; }
+    .contact-body { padding:14px 16px; }
+    .contact-person { display:flex; align-items:flex-start; gap:10px; }
+    .contact-avatar { width:38px; height:38px; border-radius:50%; background:var(--tier1-bg); color:var(--tier1-color); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; }
+    .contact-avatar.on-dark { background:var(--ccc-gold); color:var(--ccc-dark-blue); }
     .contact-info { flex:1; min-width:0; }
     .contact-name { font-size:13px; font-weight:600; color:var(--text-primary); }
     .contact-role { font-size:11px; color:var(--text-muted); margin-bottom:2px; }
-    .contact-email { font-size:11.5px; color:var(--ccc-medium-blue); word-break:break-all; }
+    .contact-email { font-size:13px; color:var(--ccc-medium-blue); word-break:break-word; }
     [data-theme="dark"] .contact-email { color:var(--accent-light); }
 
     .mobile-nav { display:none; position:fixed; bottom:0; left:0; right:0; height:var(--mobile-nav-h); background:var(--ccc-dark-blue); border-top:1px solid rgba(255,255,255,0.1); z-index:300; padding:0 4px; }
@@ -3317,30 +3320,24 @@ function translateRole(r) { return ROLE_KEYS[r] ? t(ROLE_KEYS[r]) : r; }
 function renderContacts() {
   const grid = document.getElementById('contacts-grid');
   if (!grid) return;
-  grid.innerHTML = districts.map(d => {
-    const people = [d.contact, d.fiscalReporter, d.coChair].filter(Boolean);
-    const tierLabel = d.lift ? `${t('kpi_lift')} · ${d.liftRegion}` : `${t('th_tier')} ${d.tier}`;
-    return `
+  const d = districts[0];
+  // Lead contact first (rendered as a full-width card), then the rest side by side.
+  const people = [d.contact, d.fiscalReporter, d.coChair].filter(Boolean);
+  const initials = n => n.replace(/^Dr\.?\s*/i, '').split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+  grid.innerHTML = people.map(p => `
       <div class="contact-card">
         <div class="contact-card-header">
-          <div class="contact-card-district">${d.name}</div>
-          <div class="contact-card-region">${tierLabel}</div>
-          <div class="contact-card-address">${d.address || ''}</div>
+          <div class="contact-avatar on-dark">${initials(p.name)}</div>
+          <div class="contact-card-headtext">
+            <div class="contact-card-district">${p.name}</div>
+            <div class="contact-card-region">${translateRole(p.role)}</div>
+          </div>
         </div>
-        <div class="contact-body">
-          ${people.map(p => `
-            <div class="contact-person">
-              <div class="contact-avatar">${p.name.split(' ').map(w => w[0]).slice(0,2).join('').toUpperCase()}</div>
-              <div class="contact-info">
-                <div class="contact-name">${p.name}</div>
-                <div class="contact-role">${translateRole(p.role)}</div>
-                ${p.email ? `<a class="contact-email" href="mailto:${p.email}">${p.email}</a>` : ''}
-                ${p.phone ? `<a class="contact-phone" href="tel:${p.phone.replace(/[^0-9+]/g,'')}">${p.phone}</a>` : ''}
-              </div>
-            </div>`).join('')}
+        <div class="contact-card-body2">
+          ${p.email ? `<a class="contact-email" href="mailto:${p.email}">${p.email}</a>` : '<span style="font-size:13px;color:var(--text-muted);">No email on file</span>'}
+          ${p.phone ? `<a class="contact-phone" href="tel:${p.phone.replace(/[^0-9+]/g,'')}">${p.phone}</a>` : ''}
         </div>
-      </div>`;
-  }).join('');
+      </div>`).join('');
 }
 
 /* ════════════ CHARTS ════════════ */
