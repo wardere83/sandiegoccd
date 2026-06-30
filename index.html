@@ -3309,7 +3309,6 @@ function renderTimeline() {
 // Map English role text in data → i18n key, so contact roles translate alongside the rest of the UI
 const ROLE_KEYS = {
   'Project Lead': 'role_project_lead',
-  'Alternate Project Lead': 'role_alt_project_lead',
   'Plan Approver': 'role_plan_approver',
   'Fiscal Reporter': 'role_fiscal_reporter',
 };
@@ -3319,7 +3318,7 @@ function renderContacts() {
   const grid = document.getElementById('contacts-grid');
   if (!grid) return;
   grid.innerHTML = districts.map(d => {
-    const people = [d.contact, d.altContact, d.fiscalReporter, d.planApprover, d.coChair].filter(Boolean);
+    const people = [d.contact, d.fiscalReporter, d.planApprover, d.coChair].filter(Boolean);
     const tierLabel = d.lift ? `${t('kpi_lift')} · ${d.liftRegion}` : `${t('th_tier')} ${d.tier}`;
     return `
       <div class="contact-card">
