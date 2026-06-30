@@ -647,6 +647,7 @@
     .contact-person { display:flex; align-items:flex-start; gap:10px; }
     .contact-avatar { width:38px; height:38px; border-radius:50%; background:var(--tier1-bg); color:var(--tier1-color); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; flex-shrink:0; }
     .contact-avatar.on-dark { background:var(--ccc-gold); color:var(--ccc-dark-blue); }
+    .contact-photo { width:58px; height:58px; border-radius:50%; object-fit:cover; object-position:center; flex-shrink:0; background:#fff; border:2px solid rgba(255,255,255,0.9); box-shadow:0 1px 3px rgba(0,0,0,0.25); }
     .contact-info { flex:1; min-width:0; }
     .contact-name { font-size:13px; font-weight:600; color:var(--text-primary); }
     .contact-role { font-size:11px; color:var(--text-muted); margin-bottom:2px; }
@@ -1871,9 +1872,9 @@ const districts = [
       'Standing sub-committees established: Data & Metrics; Policy & Procedure; Training & Development',
       'New practices embedded into the SDCCD EEO Plan and HR policy manuals by June 30, 2028'
     ],
-    contact:{name:'Dr. Jared Burns',role:'Plan Approver & Project Lead',title:'Vice Chancellor, People, Culture, and Technology Services',email:'jburns001@sdccd.edu',phone:'(619) 388-6589'},
-    fiscalReporter:{name:'Daniel J. Troy, M.P.P.',role:'Fiscal Reporter',title:'Vice Chancellor / Executive Business Officer',email:'dtroy@sdccd.edu',phone:'(619) 388-6976'},
-    coChair:{name:'Dr. Michelle Fischthal',role:'Co-Chair & Co-Executive Sponsor',title:'Vice Chancellor of Institutional Innovation Effectiveness',email:'',phone:'(619) 388-6580'},
+    contact:{name:'Dr. Jared Burns',role:'Plan Approver & Project Lead',title:'Vice Chancellor, People, Culture, and Technology Services',photo:'photos/jared-burns.jpg',email:'jburns001@sdccd.edu',phone:'(619) 388-6589'},
+    fiscalReporter:{name:'Daniel J. Troy, M.P.P.',role:'Fiscal Reporter',title:'Vice Chancellor / Executive Business Officer',photo:'photos/daniel-troy.jpg',email:'dtroy@sdccd.edu',phone:'(619) 388-6976'},
+    coChair:{name:'Dr. Michelle Fischthal',role:'Co-Chair & Co-Executive Sponsor',title:'Vice Chancellor of Institutional Innovation Effectiveness',photo:'photos/michelle-fischthal.jpg',email:'',phone:'(619) 388-6580'},
     budgetHighlights:{'Instructional Salaries (1000)':24370,'Non-Instructional Salaries (2000)':38000,'Other Operating & Services (5000)':77880},
     yearlyBudget:{y1:89998,y2:59999},
     primaryFocus:'District-Wide Hiring Practices Audit'
@@ -3330,7 +3331,7 @@ function renderContacts() {
   grid.innerHTML = people.map(p => `
       <div class="contact-card">
         <div class="contact-card-header">
-          <div class="contact-avatar on-dark">${initials(p.name)}</div>
+          ${p.photo ? `<img class="contact-photo" src="${p.photo}" alt="${p.name}" loading="lazy" onerror="this.outerHTML='<div class=\\'contact-avatar on-dark\\'>'+this.alt.replace(/^Dr\\.?\\s*/i,'').split(/\\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase()+'</div>'">` : `<div class="contact-avatar on-dark">${initials(p.name)}</div>`}
           <div class="contact-card-headtext">
             <div class="contact-card-district">${p.name}</div>
             <div class="contact-card-region">${translateRole(p.role)}</div>
