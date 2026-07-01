@@ -1,9 +1,29 @@
-<svg width="500" height="120" viewBox="0 0 500 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="San Diego Community College District">
-  <!-- emblem -->
-  <rect x="0" y="14" width="92" height="92" rx="18" fill="#C9A24A"/>
-  <text x="46" y="74" font-family="Georgia,'Times New Roman',serif" font-size="42" font-weight="700" letter-spacing="1" text-anchor="middle" fill="#13314F">SD</text>
-  <!-- wordmark -->
-  <text x="116" y="56" font-family="Georgia,'Times New Roman',serif" font-size="46" font-weight="600" letter-spacing="2" fill="#FFFFFF">SDCCD</text>
-  <rect x="118" y="70" width="58" height="3" rx="1.5" fill="#C9A24A"/>
-  <text x="118" y="92" font-family="'Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="500" letter-spacing="1.2" fill="rgba(255,255,255,0.80)">SAN DIEGO COMMUNITY COLLEGE DISTRICT</text>
+<svg width="520" height="130" viewBox="0 0 520 130" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="San Diego Community College District">
+  <!-- Sunburst mark: district cyan + the four colleges' colors -->
+  <path d="M62.72 50.02 L67.76 11.31 L56.24 11.31 L61.28 50.02 Z" fill="#00A9E0"/>
+  <path d="M67.32 50.97 L84.07 15.71 L73.12 12.16 L65.94 50.53 Z" fill="#0072CE"/>
+  <path d="M71.39 53.30 L98.22 24.95 L88.90 18.18 L70.22 52.46 Z" fill="#003B71"/>
+  <path d="M74.54 56.78 L108.82 38.10 L102.05 28.78 L73.70 55.61 Z" fill="#00857D"/>
+  <path d="M76.47 61.06 L114.84 53.88 L111.29 42.93 L76.03 59.68 Z" fill="#78BE21"/>
+  <path d="M76.98 65.72 L115.69 70.76 L115.69 59.24 L76.98 64.28 Z" fill="#F2A900"/>
+  <path d="M76.03 70.32 L111.29 87.07 L114.84 76.12 L76.47 68.94 Z" fill="#E4002B"/>
+  <path d="M73.70 74.39 L102.05 101.22 L108.82 91.90 L74.54 73.22 Z" fill="#B1339E"/>
+  <path d="M70.22 77.54 L88.90 111.82 L98.22 105.05 L71.39 76.70 Z" fill="#00A9E0"/>
+  <path d="M65.94 79.47 L73.12 117.84 L84.07 114.29 L67.32 79.03 Z" fill="#0072CE"/>
+  <path d="M61.28 79.98 L56.24 118.69 L67.76 118.69 L62.72 79.98 Z" fill="#003B71"/>
+  <path d="M56.68 79.03 L39.93 114.29 L50.88 117.84 L58.06 79.47 Z" fill="#00857D"/>
+  <path d="M52.61 76.70 L25.78 105.05 L35.10 111.82 L53.78 77.54 Z" fill="#78BE21"/>
+  <path d="M49.46 73.22 L15.18 91.90 L21.95 101.22 L50.30 74.39 Z" fill="#F2A900"/>
+  <path d="M47.53 68.94 L9.16 76.12 L12.71 87.07 L47.97 70.32 Z" fill="#E4002B"/>
+  <path d="M47.02 64.28 L8.31 59.24 L8.31 70.76 L47.02 65.72 Z" fill="#B1339E"/>
+  <path d="M47.97 59.68 L12.71 42.93 L9.16 53.88 L47.53 61.06 Z" fill="#00A9E0"/>
+  <path d="M50.30 55.61 L21.95 28.78 L15.18 38.10 L49.46 56.78 Z" fill="#0072CE"/>
+  <path d="M53.78 52.46 L35.10 18.18 L25.78 24.95 L52.61 53.30 Z" fill="#003B71"/>
+  <path d="M58.06 50.53 L50.88 12.16 L39.93 15.71 L56.68 50.97 Z" fill="#00857D"/>
+  <circle cx="62" cy="65" r="13" fill="#00A9E0"/>
+  <circle cx="62" cy="65" r="6.5" fill="#FFFFFF"/>
+  <!-- Wordmark -->
+  <text x="132" y="52" font-family="'Helvetica Neue',Arial,sans-serif" font-size="40" font-weight="800" letter-spacing="1.5" fill="#FFFFFF">SDCCD</text>
+  <text x="134" y="82" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="600" letter-spacing="0.9" fill="rgba(255,255,255,0.82)">SAN DIEGO COMMUNITY</text>
+  <text x="134" y="99" font-family="'Helvetica Neue',Arial,sans-serif" font-size="12.5" font-weight="600" letter-spacing="0.9" fill="rgba(255,255,255,0.82)">COLLEGE DISTRICT</text>
 </svg>

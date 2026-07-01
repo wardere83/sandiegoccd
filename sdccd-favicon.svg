@@ -1,5 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="San Diego CCD">
-  <rect width="64" height="64" rx="13" fill="#13314F"/>
-  <text x="32" y="39" font-family="Georgia,'Times New Roman',serif" font-size="29" font-weight="700" letter-spacing="0.5" text-anchor="middle" fill="#FFFFFF">SD</text>
-  <rect x="20" y="45" width="24" height="3" rx="1.5" fill="#C9A24A"/>
+  <rect width="64" height="64" rx="13" fill="#0B2140"/>
+  <path d="M32.38 24.01 L35.09 3.17 L28.91 3.17 L31.62 24.01 Z" fill="#00A9E0"/>
+  <path d="M34.83 24.52 L43.85 5.53 L37.97 3.62 L34.10 24.28 Z" fill="#0072CE"/>
+  <path d="M37.01 25.76 L51.45 10.49 L46.45 6.85 L36.39 25.31 Z" fill="#003B71"/>
+  <path d="M38.69 27.61 L57.15 17.55 L53.51 12.55 L38.24 26.99 Z" fill="#00857D"/>
+  <path d="M39.72 29.90 L60.38 26.03 L58.47 20.15 L39.48 29.17 Z" fill="#78BE21"/>
+  <path d="M39.99 32.38 L60.83 35.09 L60.83 28.91 L39.99 31.62 Z" fill="#F2A900"/>
+  <path d="M39.48 34.83 L58.47 43.85 L60.38 37.97 L39.72 34.10 Z" fill="#E4002B"/>
+  <path d="M38.24 37.01 L53.51 51.45 L57.15 46.45 L38.69 36.39 Z" fill="#B1339E"/>
+  <path d="M36.39 38.69 L46.45 57.15 L51.45 53.51 L37.01 38.24 Z" fill="#00A9E0"/>
+  <path d="M34.10 39.72 L37.97 60.38 L43.85 58.47 L34.83 39.48 Z" fill="#0072CE"/>
+  <path d="M31.62 39.99 L28.91 60.83 L35.09 60.83 L32.38 39.99 Z" fill="#003B71"/>
+  <path d="M29.17 39.48 L20.15 58.47 L26.03 60.38 L29.90 39.72 Z" fill="#00857D"/>
+  <path d="M26.99 38.24 L12.55 53.51 L17.55 57.15 L27.61 38.69 Z" fill="#78BE21"/>
+  <path d="M25.31 36.39 L6.85 46.45 L10.49 51.45 L25.76 37.01 Z" fill="#F2A900"/>
+  <path d="M24.28 34.10 L3.62 37.97 L5.53 43.85 L24.52 34.83 Z" fill="#E4002B"/>
+  <path d="M24.01 31.62 L3.17 28.91 L3.17 35.09 L24.01 32.38 Z" fill="#B1339E"/>
+  <path d="M24.52 29.17 L5.53 20.15 L3.62 26.03 L24.28 29.90 Z" fill="#00A9E0"/>
+  <path d="M25.76 26.99 L10.49 12.55 L6.85 17.55 L25.31 27.61 Z" fill="#0072CE"/>
+  <path d="M27.61 25.31 L17.55 6.85 L12.55 10.49 L26.99 25.76 Z" fill="#003B71"/>
+  <path d="M29.90 24.28 L26.03 3.62 L20.15 5.53 L29.17 24.52 Z" fill="#00857D"/>
+  <circle cx="32" cy="32" r="7" fill="#00A9E0"/>
+  <circle cx="32" cy="32" r="3.4" fill="#FFFFFF"/>
 </svg>
