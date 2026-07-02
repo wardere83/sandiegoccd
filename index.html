@@ -3068,7 +3068,7 @@ const RPT_STORE = 'eeo_grant_report_v1';
 function rptLoad() { try { return JSON.parse(localStorage.getItem(RPT_STORE)) || {}; } catch (e) { return {}; } }
 function rptSave(s) { try { localStorage.setItem(RPT_STORE, JSON.stringify(s)); } catch (e) {} }
 function rptEsc(v) { return v == null ? '' : String(v).replace(/"/g, '&quot;'); }
-function rptExpRow(r) {
+function rptExpRowHTML(r) {
   r = r || {};
   return '<tr>' +
     '<td><input class="bmr-cell-input" data-rpt-ex="type" value="' + rptEsc(r.type) + '" placeholder="e.g. Personnel (1000)"></td>' +
@@ -3094,8 +3094,11 @@ function renderReportForm() {
     else { el.value = (st[k] != null) ? st[k] : ''; el.oninput = rptPersist; }
   });
   const rows = (st.expenditures && st.expenditures.length) ? st.expenditures : [{}, {}];
-  tb.innerHTML = rows.map(rptExpRow).join('');
-  tb.querySelectorAll('input[data-rpt-ex]').forEach(i => i.oninput = rptPersist);
+  const tbody = document.getElementById('rpt-exp-body');
+  if (tbody) {
+    tbody.innerHTML = rows.map(rptExpRowHTML).join('');
+    tbody.querySelectorAll('input[data-rpt-ex]').forEach(i => i.oninput = rptPersist);
+  }
   rptSyncConditionals();
 }
 function rptPersist() {
@@ -3145,6 +3148,7 @@ function rptAddDefaultRows() {
     const tr = document.createElement('tr');
     tr.innerHTML = rptExpRowHTML({ type });
     tbody.appendChild(tr);
+    tr.querySelectorAll('input[data-rpt-ex]').forEach(i => i.oninput = rptPersist);
   });
   if (btn) btn.style.display = 'none';
   rptPersist();
@@ -3160,11 +3164,12 @@ function rptGetRows() {
 }
 
 function rptAddRow() {
-  const tb = document.getElementById('rpt-expenditures');
+  const tb = document.getElementById('rpt-exp-body');
   if (!tb) return;
-  if (tb.children.length === 0) renderReportForm();
-  tb.insertAdjacentHTML('beforeend', rptExpRowHTML({}));
-  tb.lastElementChild.querySelectorAll('input[data-rpt-ex]').forEach(i => i.oninput = rptPersist);
+  const tr = document.createElement('tr');
+  tr.innerHTML = rptExpRowHTML({});
+  tb.appendChild(tr);
+  tr.querySelectorAll('input[data-rpt-ex]').forEach(i => i.oninput = rptPersist);
   rptPersist();
 }
 function rptDelRow(btn) { const tr = btn.closest('tr'); if (tr) tr.remove(); rptPersist(); }
