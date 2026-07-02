@@ -12,10 +12,12 @@ entirely with SDCCD's factual grant-application data.
 
 - **`index.html`** — the complete, self-contained single-file dashboard (HTML + CSS + JS).
   No build step. Open it directly or serve the folder statically.
-- **`sdccd-logo-sidebar.svg`** — sidebar logo: the SDCCD sunburst mark (district
-  cyan plus the four colleges' colors) with the "San Diego Community College
-  District" wordmark. `sdccd-favicon.svg` / `sdccd-favicon-32.png` are the
-  matching sunburst favicons.
+- **Brand assets** — the official San Diego Community College District logo:
+  - **`sdccd-logo.png`** — primary logo (full color, transparent) for light backgrounds.
+  - **`sdccd-logo-sidebar.png`** — reverse lockup (wordmark knocked out to white,
+    colored mark preserved) used on the dark navy sidebar.
+  - **`sdccd-favicon.svg`** / **`sdccd-favicon-32.png`** — the logo mark on a
+    white rounded square, for browser tabs.
 - **`Bulle Cloud Logo-white.png`** — grant-monitor logo (Bulle Consulting).
 
 ## Sections
