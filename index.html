@@ -52,21 +52,11 @@
     .chart-grid > .chart-card > .chart-wrap > canvas { width: 100% !important; height: 100% !important; }
 
     :root {
-      /* ════════════ ANTELOPE VALLEY COLLEGE BRAND STANDARDS ════════════
-           Per the official AVC Brand Standards book.
-           PRIMARY:   Maroon  #8B1C40   Poppy  #F18A20   Blue  #8DB9CA
-           SECONDARY: Taupe   #A79B93   Teal   #006B67   Poppy #F18A20 (deep neutral aliased to poppy per direction)
-           Sidebar/topbar anchor: Teal (secondary). Page-section titles +
-           hero card: Maroon (primary). Accents: Poppy + Blue. Neutrals:
-           Taupe + Brown + Cream.
-        */
-      /* AVC brand-standards palette (per official brand book)
-         Primary:   Maroon #8B1C40, Poppy #F18A20, Blue #8DB9CA
-         Secondary: Taupe  #A79B93, Teal  #006B67, Poppy #F18A20 (deep neutral aliased to poppy per direction)
-         The CSS variable names are kept generic so the dashboard structure
-         doesn't change; values are remapped onto the actual brand palette. */
       /* ── Minimalist San Diego CCD palette: deep navy + one soft blue accent
-           + a muted amber, on neutral greys. Restrained, low-saturation. ── */
+           + a muted amber, on neutral greys. Restrained, low-saturation.
+           The generic --ccc-* / --avc-* variable names are retained so the
+           shared dashboard structure is unchanged; values below are San
+           Diego CCD's own palette. ── */
       --ccc-dark-blue:#13314F; --ccc-darker-blue:#0C2238; --ccc-medium-blue:#3A6EA5;
       --ccc-light-blue:#AFC6DC; --ccc-gold:#C9A24A; --ccc-dark-gold:#A8842F;
       --avc-maroon:#3A6EA5;   /* accent folded into the blue family (minimalist) */
@@ -1894,7 +1884,7 @@ const translations = {
     nav_overview:'Overview', nav_goals:'Goals & Objectives', nav_districts:'Project Profile',
     nav_outcomes:'Outcomes', nav_budget:'Budget Breakdown', nav_timeline:'Timeline', nav_contacts:'Contacts', nav_spenddown:'Spend-Down Monitor',
     topbar_title:'SDCCD Project',
-    goals_title:'Goals & Objectives', goals_sub:'The two anchor goals from the AVC workplan (Section 2.1), each with its activities, measurable outcomes, assessment plan, and responsible leadership.',
+    goals_title:'Goals & Objectives', goals_sub:'The six project goals from the SDCCD TRACE workplan (Section 2.1), each with its activities, measurable outcomes, assessment plan, and responsible leadership.',
     overview_title:'SDCCD Project Overview', overview_sub:'San Diego CCD, Tier 1 grantee — TRACE: Transparent Recruitment & Accountability for Candidate Equity. A $149,997 award from the 2026–2028 EEO IBP grant cycle.',
     meta_monitor:'Grant Monitor', meta_grantid:'Grant ID', meta_start:'Start', meta_duration:'Funding Cycle', meta_status:'Status',
     kpi_total_funding:'Total Grant Funding', kpi_across:'EEO Innovative Best Practices',
@@ -1958,7 +1948,7 @@ const translations = {
     role_project_lead:'Project Lead',
     role_fiscal_reporter:'Fiscal Reporter',
     role_plan_approver:'Plan Approver',
-    all_clear:'✓ AVC is on track, no underspend risks detected.',
+    all_clear:'✓ San Diego CCD is on track, no underspend risks detected.',
     flagged_one:'Budget Detail Flagged',
     flagged_many:'Budget Details Flagged',
     tl_total:'Total',
@@ -2060,7 +2050,7 @@ const translations = {
     role_project_lead:'Líder de Proyecto',
     role_fiscal_reporter:'Reportero Fiscal',
     role_plan_approver:'Aprobador del Plan',
-    all_clear:'✓ AVC está en buen camino — sin riesgos de subgasto detectados.',
+    all_clear:'✓ San Diego CCD está en buen camino — sin riesgos de subgasto detectados.',
     flagged_one:'Detalle de Presupuesto Marcado',
     flagged_many:'Detalles de Presupuesto Marcados',
     tl_total:'Total',
@@ -2149,7 +2139,7 @@ const translations = {
     role_project_lead:'Trưởng Dự án',
     role_fiscal_reporter:'Báo cáo Tài chính',
     role_plan_approver:'Người Phê duyệt Kế hoạch',
-    all_clear:'✓ AVC đúng tiến độ — không phát hiện rủi ro chi tiêu thiếu.',
+    all_clear:'✓ San Diego CCD đúng tiến độ — không phát hiện rủi ro chi tiêu thiếu.',
     flagged_one:'Chi tiết Ngân sách Được Đánh dấu',
     flagged_many:'Chi tiết Ngân sách Được Đánh dấu',
     tl_total:'Tổng',
@@ -2237,7 +2227,7 @@ const translations = {
     role_project_lead:'قائد المشروع',
     role_fiscal_reporter:'مراسل الميزانية',
     role_plan_approver:'معتمد الخطة',
-    all_clear:'✓ AVC على المسار — لم يُكتشف أي خطر إنفاق ناقص.',
+    all_clear:'✓ San Diego CCD على المسار — لم يُكتشف أي خطر إنفاق ناقص.',
     flagged_one:'بند ميزانية مُمَيَّز',
     flagged_many:'بنود ميزانية مُمَيَّزة',
     tl_total:'الإجمالي',
@@ -2326,7 +2316,7 @@ const translations = {
     role_project_lead:'Lider ng Proyekto',
     role_fiscal_reporter:'Fiscal Reporter',
     role_plan_approver:'Plan Approver',
-    all_clear:'✓ AVC ay nasa tamang landas — walang underspend risk na natuklasan.',
+    all_clear:'✓ San Diego CCD ay nasa tamang landas — walang underspend risk na natuklasan.',
     flagged_one:'Detalye ng Badyet na Naka-flag',
     flagged_many:'Mga Detalye ng Badyet na Naka-flag',
     tl_total:'Kabuuan',
@@ -2351,7 +2341,7 @@ const translations = {
     kpi_faculty_target_sub:'Sanay sa buong distrito sa Year 2',},
   zh: {
     nav_overview:'總覽', nav_goals:'目標與宗旨', nav_districts:'計畫簡介', nav_outcomes:'成果', nav_budget:'預算明細', nav_timeline:'時間表', nav_contacts:'聯絡資訊', nav_spenddown:'支出進度監測',
-    topbar_title:'AVC 計畫',
+    topbar_title:'SDCCD 計畫',
     overview_title:'計畫總覽',
     overview_sub:'本州平等就業機會 (EEO) 創新最佳實踐補助計畫的全州概覽,涵蓋加州 11 個社區大學學區。',
     meta_monitor:'計畫監督', meta_grantid:'補助編號', meta_start:'起始日期', meta_duration:'資助週期', meta_status:'狀態',
@@ -2411,7 +2401,7 @@ const translations = {
     role_project_lead:'計畫負責人',
     role_fiscal_reporter:'財務報告人',
     role_plan_approver:'計畫核准人',
-    all_clear:'✓ AVC 進度正常 — 未偵測到支出不足風險。',
+    all_clear:'✓ San Diego CCD 進度正常 — 未偵測到支出不足風險。',
     flagged_one:'項預算明細已被標記',
     flagged_many:'項預算明細已被標記',
     tl_total:'總計', tl_pace_label:'進度:',
@@ -3679,7 +3669,7 @@ function renderSpendDown() {
           '<td class="amount" style="font-size:12.5px;">' + fmt(li.amount) + '</td>' +
           '<td class="amount" style="font-size:11.5px;color:var(--text-muted);">' + liPct + '%</td>' +
           '<td><span style="font-size:11px;color:var(--text-muted);">part of ' + p.label + '</span></td>' +
-          '<td><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:0%;background:var(--text-muted)"></div></div><span style="font-size:11px;color:var(--text-muted);">0.0%</span></td>' +
+          '<td><div style="display:flex;align-items:center;gap:8px;"><span style="font-size:11.5px;color:var(--text-muted);min-width:32px;">0.0%</span><div class="progress-bar-wrap" style="margin-top:0;flex:1;min-width:60px;max-width:110px;"><div class="progress-bar-fill" style="width:0%;background:var(--text-muted)"></div></div></div></td>' +
           '<td><button onclick="togglePeriodPace(this,\'' + liId + '\')" data-pace="' + pace + '" style="background:' + paceColor + ';color:#fff;padding:3px 12px;border-radius:14px;font-size:11px;font-weight:700;white-space:nowrap;cursor:pointer;border:none;letter-spacing:0.02em;">' + paceText + '</button></td>' +
           '<td><button onclick="togglePeriodStatus(this,\'' + liId + '\')" data-on="' + (isOffTrack?'0':'1') + '" style="background:' + statusColor + ';color:#fff;padding:3px 12px;border-radius:14px;font-size:11px;font-weight:700;white-space:nowrap;cursor:pointer;border:none;letter-spacing:0.02em;">' + statusText + '</button></td>' +
         '</tr>';
