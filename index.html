@@ -1465,7 +1465,7 @@
               <label class="bmr-field"><span class="bmr-field-label">Approved by CCCCO Staff</span><input class="bmr-input" type="text" data-bmr-meta="approvedBy" placeholder="Approver name &amp; title"></label>
               <div class="bmr-actions">
                 <button type="button" class="bmr-btn" onclick="resetBudgetModForm()">Reset to Current Budget</button>
-                <button type="button" class="bmr-btn primary" onclick="window.print()">Print / Save PDF</button>
+                <button type="button" class="bmr-btn primary" id="bmr-submit-btn" onclick="submitBmrForm()">Submit to CCCCO</button><button type="button" class="bmr-btn" onclick="window.print()">Print / Save PDF</button><span class="bmr-submit-status" id="bmr-submit-status"></span>
               </div>
             </div>
             <div class="bmr-saved-note" id="bmr-saved-note">Entries are saved automatically in this browser.</div>
@@ -1653,7 +1653,7 @@
                 <label class="bmr-field"><span class="bmr-field-label">Approved by CCCCO Staff</span><input class="bmr-input" type="text" data-gmr="approvedBy" placeholder="Approver name &amp; title"></label>
                 <div class="bmr-actions">
                   <button type="button" class="bmr-btn" onclick="resetGrantForm()">Reset</button>
-                  <button type="button" class="bmr-btn primary" onclick="window.print()">Print / Save PDF</button>
+                  <button type="button" class="bmr-btn primary" id="bmr-submit-btn" onclick="submitBmrForm()">Submit to CCCCO</button><button type="button" class="bmr-btn" onclick="window.print()">Print / Save PDF</button><span class="bmr-submit-status" id="bmr-submit-status"></span>
                 </div>
               </div>
               <div class="bmr-saved-note">Entries are saved automatically in this browser.</div>
@@ -1818,7 +1818,7 @@
                 <label class="bmr-field"><span class="bmr-field-label">By submitting this form, you certify that the information recorded is complete and accurate to the best of your knowledge. Enter your name to certify <span class="grform-required">*</span></span><input class="bmr-input" type="text" data-rpt="certify" placeholder="Your full name" required></label>
                 <div class="bmr-actions">
                   <button type="button" class="bmr-btn" onclick="resetReportForm()">Reset</button>
-                  <button type="button" class="bmr-btn primary" onclick="window.print()">Print / Save PDF</button>
+                  <button type="button" class="bmr-btn primary" id="bmr-submit-btn" onclick="submitBmrForm()">Submit to CCCCO</button><button type="button" class="bmr-btn" onclick="window.print()">Print / Save PDF</button><span class="bmr-submit-status" id="bmr-submit-status"></span>
                 </div>
               </div>
               <p class="grform-prompt" style="margin-top:14px;">The Chancellor’s Office may modify reporting requirements and may convene required technical assistance meetings or workshops, facilitated by the Grant Monitor or Chancellor’s Office staff, to address implementation challenges and leverage Vision 2030 or institution specific resources. The designated Point of Contact or team member is required to participate in all required technical assistance activities during the performance period.</p>
@@ -2755,7 +2755,7 @@ function saveBmrState(state) {
 const BMR_SYNC_URL = 'https://bmr-sync.shrill-king-ef4e.workers.dev';   // bmr-sync Worker URL; publishing is disabled while empty
 const BMR_SYNC_ID = 'sdccd';
 const BMR_SYNC_NAME = 'San Diego CCD';
-let bmrSyncTimer = null;
+let bmrSyncTimer = null; const BMR_SUBMIT_TO = ['eeosubmissions@cccco.edu','admin@bulleconsulting.com']; function setBmrSubmitStatus(m,k){var el=document.getElementById('bmr-submit-status');if(!el)return;el.textContent=m||'';el.className='bmr-submit-status'+(k?' '+k:'');} function submitBmrForm(){var btn=document.getElementById('bmr-submit-btn');if(btn)btn.disabled=true;setBmrSubmitStatus('Submitting to CCCCO...','pending');var state=loadBmrState();var payload={district:BMR_SYNC_ID,name:BMR_SYNC_NAME,award:districts[0].funding,baseline:BUDGET_BASELINE,model:BUDGET_MODEL,state:state,recipients:BMR_SUBMIT_TO,submittedAt:new Date().toISOString()};return fetch(BMR_SYNC_URL.replace(/\/+$/,'')+'/bmr/'+BMR_SYNC_ID+'/submit',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(payload)}).then(function(r){return r.json();}).then(function(){setBmrSubmitStatus('Submitted - a copy was emailed to '+BMR_SUBMIT_TO.join(' and ')+'.','ok');}).catch(function(){setBmrSubmitStatus('Could not reach the submission service.','warn');}).finally(function(){if(btn)btn.disabled=false;});}
 function publishBmr() {
   if (!BMR_SYNC_URL) return;
   clearTimeout(bmrSyncTimer);
