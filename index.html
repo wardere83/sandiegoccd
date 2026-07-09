@@ -2770,7 +2770,7 @@ function renderBudget() {
      Year 1 / Year 2 cards, the KPI cards and the Timeline live.
    - All entries persist in localStorage.
 ════════════════════════════════════════════════════════════════ */
-const BMR_STORE = 'avc_budget_mod_form_v1';
+const BMR_STORE = 'sdccd_budget_mod_form_v1';
 const parseMoney = s => { const n = parseFloat(String(s).replace(/−/g, '-').replace(/[^0-9.\-]/g, '')); return isFinite(n) ? n : 0; };
 
 function loadBmrState() {
@@ -3468,7 +3468,7 @@ function startBmrGuide() {
 let rpvScenes = [], rpvCum = [], rpvTotal = 0, rpvT = 0, rpvPlaying = false, rpvLast = 0, rpvRAF = null, rpvLastI = -1;
 function rpvFmt(ms) { const s = Math.max(0, Math.round(ms / 1000)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
 function rpvBuildScenes() {
-  const dist = (typeof districts !== 'undefined' && districts[0] && districts[0].name) ? districts[0].name : 'Allan Hancock Community College District';
+  const dist = (typeof districts !== 'undefined' && districts[0] && districts[0].name) ? districts[0].name : 'San Diego CCD';
   rpvScenes = [
     { t:'rv-district',       cap:'Start with your Community College District name.', text:dist },
     { t:'rv-lead',           cap:'Enter the Project Lead\'s full name and title.', text:'Dr. Jane Smith, Project Lead' },
