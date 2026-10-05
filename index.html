@@ -1995,6 +1995,17 @@
 </div>
 
 <script>
+/* One-time copy of saved drafts off storage keys that were shared with other district dashboards on this origin */
+(function () {
+  try {
+    if (localStorage.getItem('sdccd_keys_migrated_v1')) return;
+    [['eeo_grant_report_v1', 'sdccd_eeo_grant_report_v1'], ['grant_mod_form_v1', 'sdccd_grant_mod_form_v1'], ['avcActiveSection', 'sdccdActiveSection'], ['avcYearFilter', 'sdccdYearFilter'], ['avcPeriodStatuses', 'sdccdPeriodStatuses'], ['avcPeriodPaces', 'sdccdPeriodPaces']].forEach(function (p) {
+      var v = localStorage.getItem(p[0]);
+      if (v !== null && localStorage.getItem(p[1]) === null) localStorage.setItem(p[1], v);
+    });
+    localStorage.setItem('sdccd_keys_migrated_v1', '1');
+  } catch (e) {}
+})();
 /* ════════════════════════════════════════════════════════════════
    2-YEAR FUNDING CYCLE: Jan 1 2026 – Jun 30 2028
      Year 1: Jan 1, 2026 – Jun 30, 2027 (18 months)
@@ -2720,7 +2731,7 @@ function showSection(id, clickedBtn, isMobile) {
       const label = navText.trim();
       if (label) document.title = label + ' · ' + baseTitle;
     } catch (e) {}
-    localStorage.setItem('avcActiveSection', id);
+    localStorage.setItem('sdccdActiveSection', id);
   } catch (e) { /* no-op */ }
 }
 
@@ -2729,7 +2740,7 @@ function resolveInitialSection() {
   try {
     const hash = (window.location.hash || '').replace(/^#/, '').trim();
     if (hash && document.getElementById('section-' + hash)) return hash;
-    const stored = localStorage.getItem('avcActiveSection');
+    const stored = localStorage.getItem('sdccdActiveSection');
     if (stored && document.getElementById('section-' + stored)) return stored;
   } catch (e) { /* no-op */ }
   return 'overview';
@@ -3212,7 +3223,7 @@ function resetBudgetModForm() {
 }
 
 /* ════════════ GRANT MODIFICATION REQUEST FORM (Forms tab) ════════════ */
-const GMR_STORE = 'grant_mod_form_v1';
+const GMR_STORE = 'sdccd_grant_mod_form_v1';
 function gmrLoad() { try { return JSON.parse(localStorage.getItem(GMR_STORE)) || {}; } catch (e) { return {}; } }
 function gmrSave(s) { try { localStorage.setItem(GMR_STORE, JSON.stringify(s)); } catch (e) {} }
 function gmrEsc(v) { return v == null ? '' : String(v).replace(/"/g, '&quot;'); }
@@ -3439,7 +3450,7 @@ async function submitGmrForm() {
 // ═══════════════════════════════════════════════════════════════
 // EEO IBP GRANT REPORT — form persistence, row management, submit
 // ═══════════════════════════════════════════════════════════════
-const RPT_STORE = 'eeo_grant_report_v1';
+const RPT_STORE = 'sdccd_eeo_grant_report_v1';
 function rptLoad() { try { return JSON.parse(localStorage.getItem(RPT_STORE)) || {}; } catch (e) { return {}; } }
 function rptSave(s) { try { localStorage.setItem(RPT_STORE, JSON.stringify(s)); } catch (e) {} }
 function rptEsc(v) { return v == null ? '' : String(v).replace(/"/g, '&quot;'); }
@@ -4244,8 +4255,8 @@ const AVC_PERIODS = [
 // (e.g. opened directly as a file:// page, or in privacy modes that block storage).
 const safeLSget = (k, fb) => { try { return JSON.parse(localStorage.getItem(k) || fb); } catch (e) { return JSON.parse(fb); } };
 const safeLSset = (k, v) => { try { localStorage.setItem(k, v); } catch (e) { /* storage unavailable — no-op */ } };
-const periodStatuses = safeLSget('avcPeriodStatuses', '{}');
-const periodPaces    = safeLSget('avcPeriodPaces',    '{}');
+const periodStatuses = safeLSget('sdccdPeriodStatuses', '{}');
+const periodPaces    = safeLSget('sdccdPeriodPaces',    '{}');
 
 const PACE_CYCLE = ['slow','moderate','fast'];
 const PACE_COLOR = {
@@ -4257,12 +4268,12 @@ const PACE_LABEL = { slow:'Slow', moderate:'Moderate', fast:'Fast' };
 
 // Current year filter for the Underspend Risk Alerts ('all' | 'y1' | 'y2')
 let currentYearFilter = (function(){
-  try { return localStorage.getItem('avcYearFilter') || 'all'; } catch(e){ return 'all'; }
+  try { return localStorage.getItem('sdccdYearFilter') || 'all'; } catch(e){ return 'all'; }
 })();
 function setYearFilter(filter, btn) {
   if (filter !== 'all' && filter !== 'y1' && filter !== 'y2') filter = 'all';
   currentYearFilter = filter;
-  try { localStorage.setItem('avcYearFilter', filter); } catch(e){}
+  try { localStorage.setItem('sdccdYearFilter', filter); } catch(e){}
   document.body.setAttribute('data-year-filter', filter);
   document.querySelectorAll('.year-filter-tab').forEach(t => {
     const isActive = t.dataset.yearFilter === filter;
@@ -4290,7 +4301,7 @@ function getAllLineItems() {
 function togglePeriodStatus(btn, id) {
   const isNowOff = btn.dataset.on === '1';
   periodStatuses[id] = isNowOff ? 'off' : 'on';
-  safeLSset('avcPeriodStatuses', JSON.stringify(periodStatuses));
+  safeLSset('sdccdPeriodStatuses', JSON.stringify(periodStatuses));
   btn.dataset.on = isNowOff ? '0' : '1';
   btn.style.background = isNowOff ? '#c53030' : '#1a7a3c';
   btn.textContent = isNowOff ? t('status_off') : t('status_on');
@@ -4302,7 +4313,7 @@ function togglePeriodPace(btn, id) {
   const idx = PACE_CYCLE.indexOf(current);
   const next = PACE_CYCLE[(idx + 1) % PACE_CYCLE.length];
   periodPaces[id] = next;
-  safeLSset('avcPeriodPaces', JSON.stringify(periodPaces));
+  safeLSset('sdccdPeriodPaces', JSON.stringify(periodPaces));
   btn.dataset.pace = next;
   btn.style.background = PACE_COLOR[next];
   btn.textContent = t('pace_' + next);
